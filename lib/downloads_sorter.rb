@@ -1,3 +1,4 @@
+require 'fileutils'
 class NoPathError < Exception; end;
 
 class DownloadsSorter
@@ -7,7 +8,8 @@ class DownloadsSorter
   Documents = %w{ *.pdf *.doc *.docx *.txt}
   Audio = %w{ *.mp3 }
   Books = %w{ *.epub }
-  SUB_DIRS = %w{ Images Documents Audio}
+  Apps = %w{ *.dmg }
+  SUB_DIRS = %w{ Images Documents Audio Books Apps}
   
   
   attr_reader :dir_path
