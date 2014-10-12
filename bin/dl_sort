@@ -1,0 +1,11 @@
+#! /usr/bin/env ruby
+
+require 'downloads_sorter'
+
+if ARGV[0]
+  d = DownloadsSorter.new(ARGV[0])
+  d.sort
+else
+  puts "Please Specify a Directory to Sort"
+  abort
+end
