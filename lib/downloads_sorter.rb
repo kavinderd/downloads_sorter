@@ -9,7 +9,8 @@ class DownloadsSorter
   Audio = %w{ *.mp3 }
   Books = %w{ *.epub }
   Apps = %w{ *.dmg }
-  SUB_DIRS = %w{ Images Documents Audio Books Apps}
+  Archives = %w{ .zip }
+  SUB_DIRS = %w{ Images Documents Audio Books Apps Archives}
   
   
   attr_reader :dir_path

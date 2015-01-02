@@ -15,15 +15,15 @@ class DownloadsSorterTest < MiniTest::Test
 
   def teardown
     Dir.chdir(TEST_PATH) do
-      `rm -rf Images` if Dir.exists?('Images')
-      `rm -rf Documents` if Dir.exists?('Documents')
-      `rm -rf Audio` if Dir.exists?('Audio')
+      DownloadsSorter::SUB_DIRS.each do |dir|
+        `rm -rf #{dir}` if Dir.exists?(dir)
+      end
     end
   end
 
   def seed_folder
     Dir.chdir(TEST_PATH) do
-      %w{ file1.png file2.pdf file3.jpeg file4.txt file5.docx file6.xlsx file7.csv file.dump file.mp3 file.mp4 }.each do |file|
+      %w{ file1.png file2.pdf file3.jpeg file4.txt file5.docx file6.xlsx file7.csv file.dump file.mp3 file.mp4 test.zip }.each do |file|
         File.new(file, 'w+')
       end
     end
@@ -43,6 +43,7 @@ class DownloadsSorterTest < MiniTest::Test
     ds.sort
     assert(true, File.exists?("tmp/Downloads/Images/file1.png"))
     assert(true, File.exists?("tmp/Downloads/Documents/file5.docx"))
+    assert(true, File.exists?("tmp/Downloads/Archives/test.zip"))
     Dir.chdir(TEST_PATH) do
       assert(1, Dir.glob("*").count)
     end
