@@ -9,7 +9,7 @@ class DownloadsSorter
   Audio = %w{ *.mp3 }
   Books = %w{ *.epub }
   Apps = %w{ *.dmg }
-  Archives = %w{ .zip .tar .gzip}
+  Archives = %w{ *.zip *.tar *.gzip}
   SUB_DIRS = %w{ Images Documents Audio Books Apps Archives}
   
   
