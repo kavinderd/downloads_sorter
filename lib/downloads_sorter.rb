@@ -2,7 +2,7 @@ require 'fileutils'
 class NoPathError < Exception; end;
 
 class DownloadsSorter
-  VERSION = "0.0.2"
+  VERSION = "0.0.3"
   PATH = File.join(Dir.home, "Downloads")
   Images = %w{ *.jpg *.png *.jpeg}
   Documents = %w{ *.pdf *.doc *.docx *.txt}
